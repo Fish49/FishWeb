@@ -36,4 +36,4 @@ the origin point describes the location of the element relative to its parent. i
 the box alignment describes where the box shows up relative to the origin.
 the default for both is top-left, which means that by default, the box will snugly fit in the top-left corner of its parent.
 examples:
-[/readmefiles/alignment-examples.png]
+![image](/readmefiles/alignment-examples.png)
