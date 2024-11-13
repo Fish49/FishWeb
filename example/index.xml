@@ -1,0 +1,23 @@
+<!DOCTYPE hfml>
+<hfml>
+    <head>
+        <name>FishLand!</name>
+        <url>fish://fishland.port</url>
+        <import>math, random, stringUtils:*, foo.bar:baz.qux</import>
+        <st priority="f">import standard</st>
+    </head>
+    <div uid="header">
+        <hlink source="/otherpage" id="otherpage">Other page</hlink>
+        <checkbox id="cb"/>
+        <sc>
+            rev isChecked = true
+            $cb.bind("checked", isChecked)
+        </sc>
+    </div>
+    <st>
+        #header {
+            pack: grid(horizontal, 0)
+            size: fit-parent <!-- size is its relationship with parents and children. it can fit-parent, fill-parent, fit-children, or be constant. -->
+        }
+    </st>
+</hfml>
