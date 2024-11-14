@@ -7,7 +7,7 @@
         <st priority="f">import standard</st>
     </head>
     <div uid="header">
-        <hlink source="/otherpage" id="otherpage">Other page</hlink>
+        <link source="/otherpage" id="otherpage">Other page</link>
         <checkbox id="cb"/>
         <sc>
             rev isChecked = true
