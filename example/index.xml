@@ -6,18 +6,7 @@
         <import>math, random, stringUtils:*, foo.bar:baz.qux</import>
         <st priority="f">import standard</st>
     </head>
-    <div uid="header">
-        <link source="/otherpage" id="otherpage">Other page</link>
-        <checkbox id="cb"/>
-        <sc>
-            rev isChecked = true
-            $cb.bind("checked", isChecked)
-        </sc>
-    </div>
-    <st>
-        #header {
-            pack: grid(horizontal, 0)
-            size: fit-parent <!-- size is its relationship with parents and children. it can fit-parent, fill-parent, fit-children, or be constant. -->
-        }
-    </st>
+    <body>
+        
+    </body>
 </hfml>

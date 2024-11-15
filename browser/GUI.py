@@ -2,21 +2,28 @@
 gui stuff for FishWeb
 -PaiShoFish49
 '''
-import tkinter as tk
-import tkinter.ttk as ttk
-from ttkthemes import ThemedTk
+import pygame
 
-root = ThemedTk("FishWeb Browser", theme="black")
-# root.iconbitmap('fishweb.ico')
-root.geometry('200x200')
+pygame.init()
 
-pageArea = ttk.Frame(root)
-pageArea.pack()
+screen = pygame.display.set_mode((1280,720),pygame.RESIZABLE)
 
-tabBrowser = ttk.Frame(root)
-tabBrowser.pack()
+clock = pygame.time.Clock()
 
-button = ttk.Button(tabBrowser, text='joemama')
-button.pack()
+while True:
+    # Process player inputs.
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            raise SystemExit
 
-root.mainloop()
+    # Do logical updates here.
+    # ...
+
+    screen.fill("purple")  # Fill the display with a solid color
+
+    # Render the graphics here.
+    # ...
+
+    pygame.display.flip()  # Refresh on-screen display
+    clock.tick(60)         # wait until next frame (at 60 FPS)

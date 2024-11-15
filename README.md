@@ -35,3 +35,6 @@ the box alignment describes where the box shows up relative to the origin.
 the default for both is top-left, which means that by default, the box will snugly fit in the top-left corner of its parent.  
 examples:  
 ![image](/readmefiles/alignment-examples.png)
+
+### Style Format
+you can give styles a priority, f meaning first, l meaning last, and everthing goes in between. processed in order: 1f, f, -1f, 1, 0, -1, 1l, l, -1l
