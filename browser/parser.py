@@ -1,2 +1,5 @@
 import xml.etree.ElementTree as ET
-data = ET.parse('./example/index.xml')
+
+def parse(string):
+    data = ET.XML(string)
+    return data
