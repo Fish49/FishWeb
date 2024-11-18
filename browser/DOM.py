@@ -6,6 +6,11 @@ classes for DOM
 from fractions import Fraction
 from typing import Literal
 
+class Page():
+    def __init__(self):
+        self.children = []
+        self.style = Style()
+
 class Style:
     def __init__(self):
         self.originAlignRelative = True
