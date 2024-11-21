@@ -19,4 +19,18 @@ def sendProgData(data, socket: socket.socket):
         "tranfer": "progData",
         "data": data
     }
-    socket.send(json.dumps(message))
+    socket.send(json.dumps(message).encode())
+
+def webpageFromUrl(socket: socket.socket, URL, DNS):
+    socket.connect(DNS)
+    data = {
+        "transfer": "DNS",
+        "data": URL
+    }
+    socket.send(json.dumps(data).encode())
+
+    hostAddr = json.loads(socket.recv(1024).decode())["data"]
+    socket.close()
+
+    socket.connect(hostAddr)
+    ...
