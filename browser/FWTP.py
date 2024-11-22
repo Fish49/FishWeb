@@ -4,6 +4,7 @@ fish web transfer protocol
 
 import socket
 import json
+import re
 
 def setupClientConnection(IP = '0.0.0.0', port = 5154, useUDP = False):
     if useUDP:
@@ -21,7 +22,10 @@ def sendProgData(data, socket: socket.socket):
     }
     socket.send(json.dumps(message).encode())
 
-def webpageFromUrl(socket: socket.socket, URL, DNS):
+def webpageFromUrl(socket: socket.socket, URL: str, DNS: tuple[str, int]):
+    # fwtp://fww.PaiShoFish49.port/games/sudoku
+    host = re.search(r"")
+
     socket.connect(DNS)
     data = {
         "transfer": "DNS",
@@ -33,4 +37,9 @@ def webpageFromUrl(socket: socket.socket, URL, DNS):
     socket.close()
 
     socket.connect(hostAddr)
-    ...
+    data = {
+        "transfer": "page",
+        "data": {
+            "path": "/"
+        }
+    }
