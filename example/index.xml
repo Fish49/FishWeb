@@ -1,12 +1,9 @@
 <!DOCTYPE hfml>
 <hfml>
     <head>
-        <name>FishLand!</name>
-        <url>fish://fishland.port</url>
-        <import>math, random, stringUtils:*, foo.bar:baz.qux</import>
-        <st priority="f">import standard</st>
+        <name>PaiShoFish49</name>
     </head>
     <body>
-        
+        <text>BlahBlahBlah</text>
     </body>
 </hfml>
