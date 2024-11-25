@@ -1,4 +1,4 @@
-from misc import FWTP
+import FWTP
 import json
 
 conn = FWTP.setupConnection(port=5151)
@@ -18,10 +18,11 @@ def register(name, tld, IP, port):
 def handleRequest(socket: FWTP.socket.socket):
     data = FWTP.recieve(socket)
     if data["transfer"] == "DNSreq":
-        with open("server/DNSdb.json", 'r') as file:
+        with open("DNSdb.json", 'r') as file:
             dbdict = json.load(file)
 
-        FWTP.transfer("DNSres", dbdict[data["data"]["tld"]][data["data"]["hostName"]])
+        print(data)
+        FWTP.transfer("DNSres", dbdict[data["data"]["tld"][1:]][data["data"]["name"]], socket)
 
     socket.close()
 

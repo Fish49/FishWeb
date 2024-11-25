@@ -57,16 +57,17 @@ def extractURL(URL: str):
     URLre = re.search(f'(?P<preamble>{regexs["preamble"]})(?P<hostName>{regexs["hostName"]})(?P<tld>{regexs["tld"]})(?P<path>{regexs["path"]})(?P<flags>{regexs["flags"]})', URL)
     URLdict = URLre.groupdict()
 
-    return URLdict["hostName"], URLdict["tld"], URLdict["path"], URLdict["flags"]
+    return URLdict
 
 def webpageFromUrl(socket: socket.socket, URL: str, DNS: tuple[str, int]):
     # fwtp://fww.PaiShoFish49.me/games/sudoku
     URLdata = extractURL(URL)
 
     connect(socket, DNS)
+    print(URLdata)
     data = {
-        "name": URLdata[1],
-        "tld": URLdata[2],
+        "name": URLdata["hostName"],
+        "tld": URLdata["tld"],
     }
     transfer("DNSreq", data, socket)
 
@@ -83,7 +84,8 @@ def webpageFromUrl(socket: socket.socket, URL: str, DNS: tuple[str, int]):
     response = recieve(socket)
     return response["data"]
 
-def handleConnections(onConnection: function, socket: socket.socket, disconnect: function = lambda: False):
+def handleConnections(onConnection, socket: socket.socket, disconnect = lambda: False):
+    socket.listen(1)
     while True:
         if disconnect() is True:
             break
