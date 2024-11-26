@@ -8,8 +8,8 @@ URLdata = FWTP.extractURL(url)
 
 FWTP.connect(conn, dns)
 data = {
-    "name": URLdata[0],
-    "tld": URLdata[1],
+    "name": URLdata["hostName"],
+    "tld": URLdata["tld"],
 }
 FWTP.transfer("DNSreq", data, conn)
 

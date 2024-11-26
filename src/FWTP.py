@@ -64,7 +64,6 @@ def webpageFromUrl(socket: socket.socket, URL: str, DNS: tuple[str, int]):
     URLdata = extractURL(URL)
 
     connect(socket, DNS)
-    print(URLdata)
     data = {
         "name": URLdata["hostName"],
         "tld": URLdata["tld"],

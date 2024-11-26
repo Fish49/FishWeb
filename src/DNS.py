@@ -21,7 +21,6 @@ def handleRequest(socket: FWTP.socket.socket):
         with open("DNSdb.json", 'r') as file:
             dbdict = json.load(file)
 
-        print(data)
         FWTP.transfer("DNSres", dbdict[data["data"]["tld"][1:]][data["data"]["name"]], socket)
 
     socket.close()
