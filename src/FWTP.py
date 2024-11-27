@@ -6,6 +6,7 @@ import socket
 import json
 import re
 import threading
+import ssl
 
 def dataIsComplete(data: str):
     if data.count("}") >= data.count("{"):
