@@ -13,7 +13,7 @@ def dataIsComplete(data: str):
         return True
     return False
 
-def recieve(socket: socket.socket):
+def receive(socket: socket.socket):
     data = socket.recv(1024).decode()
     while dataIsComplete(data) is False:
         chunk = socket.recv(1024)
@@ -71,7 +71,7 @@ def webpageFromUrl(socket: socket.socket, URL: str, DNS: tuple[str, int]):
     }
     transfer("DNSreq", data, socket)
 
-    hostAddr = tuple(recieve(socket)["data"])
+    hostAddr = tuple(receive(socket)["data"])
     socket.close()
 
     connect(socket, hostAddr)
@@ -81,7 +81,7 @@ def webpageFromUrl(socket: socket.socket, URL: str, DNS: tuple[str, int]):
     }
     transfer("pagereq", data, socket)
 
-    response = recieve(socket)
+    response = receive(socket)
     return response["data"]
 
 def handleConnections(onConnection, socket: socket.socket, disconnect = lambda: False):
